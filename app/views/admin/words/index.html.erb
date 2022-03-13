@@ -1,0 +1,31 @@
+<div class="container py-5">
+    <div class="d-flex bd-highlight align-items-center">
+        <h1 class="text-dark mb-4 bd-highlight mr-auto">Admin|Words</h1>
+        <%= link_to "Add word", new_admin_category_word_path(@category), class: "btn btn-success mx-1", style:"width: 6rem;" %>
+        <%= link_to "Back", admin_categories_path, class: "btn btn-link border border-primary bd-highlight mx-1" %>
+    </div>
+    <div class="border-left border-secondary">
+        <h2 class="ml-3"><%= @category.title %></h2>
+        <p class="ml-3"><%= @category.description %></p>
+    </div>
+    <table class="table table-striped border">
+        <tbody>
+            <tr>
+                <th style="width: 30%;">Words</th>
+                <th style="width: 40%;">Answer</th>
+                <th style="width: 40%;">Action</th>
+            </tr>
+            <% @words.each do |word| %>
+            <tr>
+                <td><%= word.content %></td>
+                <td><%= word.correct_choice.content %></td>
+                <td>
+                    <%= link_to "Edit", edit_admin_category_word_path(@category, word), class: "btn btn-warning mx-1", style:"width: 6rem;" %>
+                    <%= link_to "Remove", admin_category_word_path(@category, word), class: "btn btn-danger mx-1", style:"width: 6rem;", method: :delete, data: {confirm: "Are you sure you want to delete #{word.content}?"} %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+

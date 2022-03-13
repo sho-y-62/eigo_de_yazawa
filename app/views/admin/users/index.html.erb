@@ -1,0 +1,38 @@
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-dark mb-4">Admin|Users</h1>
+        <%= link_to "Add user", signup_path, class: "btn btn-success" %>
+    </div>
+    <table class="table table-striped border">
+        <tbody>
+            <tr>
+                <th scope="col-xs-3">Name</th>
+                <th scope="col-xs-4">Email</th>
+                <th scope="col-xs-1"></th>
+                <th scope="col-xs-2"></th>
+                <th scope="col-xs-2"></th>
+            </tr>
+            <% @users.each do |user| %>
+                <tr>
+                    <th scope="row"><%= link_to user.name, edit_user_path(user) %></th>
+                    <td><%= user.email %></td>
+                    <td>
+                        <% if user.is_admin? %>
+                            <p>Admin</p>
+                        <% else %>
+                            <p></p>
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if user.is_admin? %>
+                            <%= button_to "Remove admin", remove_admin_user_path(user), class: "btn btn-outline-warning", method: :patch %>
+                        <% else %>
+                            <%= button_to "Set as admin", set_admin_user_path(user), class: "btn bg-warning", method: :patch %>
+                        <% end %>
+                    </td>
+                    <td><%= link_to "Delete user", admin_user_path(user), class: "btn btn-outline-danger", method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

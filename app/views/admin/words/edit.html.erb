@@ -1,0 +1,10 @@
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-dark mb-4">Admin|Words</h1>
+        <%= link_to "Back", admin_category_words_path, class: "btn btn-link border border-primary bd-highlight mx-1" %>
+    </div>
+    <div class="border-left border-secondary">
+        <h2 class="ml-3"><%= @category.title %></h2>
+    </div>
+    <%= render "/admin/shared/form_word"%>
+</div>

@@ -1,0 +1,22 @@
+<%= form_with(model: @user, local: true) do |f| %>
+    <%= render "shared/error_message", object: @user %>
+    <div class="center-block w-50 m-auto">
+        <label for="name" class="form-label">Name</label>
+        <%= f.text_field :name, class: "form-control"%>
+
+        <label for="email" class="form-label mt-3">Email</label>
+        <%= f.email_field :email, class: "form-control" %>
+
+        <%= f.label :password, "Password" , class: "form-label mt-3" %>
+        <%= f.password_field :password, class: "form-control" %>
+
+        <%= f.label :password_confirmation, class: "form-label mt-3" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+
+        <% if @user.id.present? %>
+            <%= f.submit "Update an account", class: "btn btn-block btn-success mt-3" %>
+        <% else %>
+            <%= f.submit "Create an account", class: "btn btn-block btn-success mt-3" %>
+        <% end %>
+    </div>
+<% end %>

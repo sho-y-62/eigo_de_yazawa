@@ -1,0 +1,24 @@
+<%= form_with(model: [:admin, @category], local: true) do |f| %>
+    <%= render "/shared/error_message", object: @category %>
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <%= f.label :title, class: "form-label" %>
+                </div>
+                <div class="col-sm-10">
+                    <%= f.text_field :title, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">
+                    <%= f.label :description, class: "form-label" %>
+                </div>
+                <div class="col-sm-10">
+                    <%= f.text_area :description, class: "form-control" %>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <%= f.submit "Save category", class: "btn btn-block btn-success mt-3" %>
+            </div>
+        </div>
+<% end %>

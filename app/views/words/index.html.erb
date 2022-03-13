@@ -1,0 +1,15 @@
+<div class="container my-5">
+    <h1 class="text-dark mb-4">Word lists</h1>
+    <div class="row">
+        <% @words.each do |word| %>
+            <div class="col-md-12 ">
+                <div class="card border-0 mb-5 shadow-lg rounded">
+                    <div class="card-body">
+                        <h5><%= word.correct_choice.content %></h5>
+                        <p class="mb-0"><%= word.content %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

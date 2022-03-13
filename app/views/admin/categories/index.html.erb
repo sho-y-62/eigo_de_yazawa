@@ -1,0 +1,29 @@
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-dark mb-4">Admin|Categories</h1>
+        <%= link_to "Add category", new_admin_category_path, class: "btn btn-success" %>
+    </div>
+    <table class="table table-striped border">
+        <tbody>
+            <tr>
+                <th style="width: 20%;">Title</th>
+                <th style="width: 40%;">Description</th>
+                <th class="text-center" style="width: 5%;">Words</th>
+                <th style="width: 40%;">Action</th>
+            </tr>
+            <% @categories.each do |category| %>
+                <tr>
+                    <td><%= category.title %></td>
+                    <td><%= category.description %></td>
+                    <td class="text-center"><%= category.words.count %></td>
+                    <td>
+                        <%= link_to "Add word", admin_category_words_path(category), class: "btn btn-primary mx-1", style:"width: 6rem;" %>
+                        <%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-outline-primary mx-1", style:"width: 6rem;" %>
+                        <u><%= link_to "Remove", admin_category_path(category), class: "text-primary mx-1", style:"width: 6rem;", method: :delete, data: {confirm: "Are you sure you want to delete #{category.title}?"} %></u>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
