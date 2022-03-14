@@ -11,6 +11,7 @@ WORKDIR /tmp
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install
+RUN gem install bundler
 ENV APP_HOME /eigo_de_yazawa
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
