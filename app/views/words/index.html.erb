@@ -5,8 +5,17 @@
             <div class="col-md-12 ">
                 <div class="card border-0 mb-5 shadow-lg rounded">
                     <div class="card-body">
-                        <h5><%= word.correct_choice.content %></h5>
-                        <p class="mb-0"><%= word.content %></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="col-md-11">
+                                <h5><%= word.correct_choice.content %></h5>
+                                <p class="mb-0"><%= word.content %></p>
+                            </div>
+                            <div class="col-md-1">
+                                <%= link_to "https://twitter.com/share?url=#{ request.url }&text=#{ word.correct_choice.content }-#{ word.content }", target: '_blank' do %>
+                                    <i class="fa-brands fa-twitter" style="font-size: 2rem; color: #1DA1F2;"></i>
+                                <% end %>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
