@@ -1,3 +1,27 @@
-// Place all the styles related to the answers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+$lightGrey: #ddd;
+$blue: rgb(148, 196, 255);
+$orange: rgb(255, 195, 135);
+
+@keyframes countdown {
+	to {
+		background-position: 100% 50%;
+	}
+}
+.countdown-bar {
+	height: 1.5rem;
+	position: relative;
+	&:after {
+		content: "";
+		position: absolute;
+		top: 1rem;
+		right: 0.25rem;
+		left: 0.25rem;
+		height: 0.6rem;
+		border-radius: 0.5rem;
+		background-color: $lightGrey;
+		background-image: linear-gradient(to right, $blue 50%, $lightGrey 50%);
+		background-size: 200% 100%;
+		background-position: 0% 50%;
+		animation: countdown calc(var(--countdown-time) * 1s) linear forwards;
+	}
+}
